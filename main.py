@@ -3,28 +3,29 @@
 # The idea is get familiar with Numpy, Panda, Mattplotlib libraries
 # Starting showing sinus, cosinus and let's see what could we add...
 
-import numpy
-import matplotlib
-from matplotlib import pylab, mlab, pyplot
-np = numpy
-plt = pyplot
+import numpy as np
+import matplotlib.pyplot as plt
 
-from IPython.display import display
-from IPython.core.pylabtools import figsize, getfigs
-
-from pylab import *
-from numpy import *
-print(matplotlib.is_interactive())
-matplotlib.interactive(True)
-print(matplotlib.is_interactive())
 
 
 ###  MAIN ###
 
+x = np.arange(-2*np.pi,2*np.pi,0.1)
 
-plt.ion()
-fig, ax=plt.subplots()
-ax.plot([1,2,3,4],[1,4,2,3])
+y = np.sin(x)
+z = np.cos(x)
+
+## TWO SUBPLOTS
+fig, (ax1, ax2) = plt.subplots(1,2)
+ax1.plot(x,y)
+ax2.plot(x,z)
+plt.show()
+
+## SAME PLOT
+fig, ax = plt.subplots()
+ax.plot(x,y, label="sin")
+ax.plot(x,z,label="cos")
+plt.title("SIN & COS")
+plt.legend()
 
 plt.show()
-plt.ioff()
